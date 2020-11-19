@@ -1,0 +1,14 @@
+package com.Skola;
+
+import javax.swing.*;
+
+public class Tests {
+
+
+    public static void main (String[] arg)      {
+
+            String name;
+            String hälsning;
+            name = JOptionPane.showInputDialog("Vad heter du? ");
+            hälsning = "Välkommen " + name;
+            JOptionPane.showMessageDialog(null, hälsning);
