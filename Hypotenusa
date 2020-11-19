@@ -1,0 +1,16 @@
+import javax.swing.*;
+import java.util.Scanner;
+
+public class Tests {
+
+
+    public static void main (String[] arg)      {
+
+            int a = 0;
+            int b =0;
+            Scanner s = new Scanner(System.in);
+            a = s.nextInt();
+            b = s.nextInt();
+
+            double c =Math.sqrt((a*a) + (b*b));
+        System.out.println(c);
