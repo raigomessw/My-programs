@@ -1,0 +1,18 @@
+package com.Skola;
+
+import javax.swing.*;
+
+public class Tests {
+
+
+    private static Object String;
+
+    public static void main (String[] arg)      {
+
+            String s1;
+            s1 = "Bemvindo\n";
+            String s2;
+            s2 = s1;
+            s2 = s2 + "aki\n";
+            s2 = s2 + "" + System.getProperty("user.name");
+            JOptionPane.showMessageDialog(null, s2);
