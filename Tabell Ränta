@@ -1,0 +1,25 @@
+package com.TestLivro;
+
+import javax.swing.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Läs indata
+        String s = JOptionPane.showInputDialog("Räntasats");
+        double ränta = Double.parseDouble(s);
+        s = JOptionPane.showInputDialog("Antal År");
+        int n = Integer.parseInt(s);
+
+        //Beräkna tabell
+
+        double kapital= 100000;
+        String tabell ="";
+        int år;
+        for (år=1; år<n; år=år+1)   {
+            kapital =  kapital + kapital *0.07 *ränta;
+            tabell = tabell + år +"     " + (int) kapital + "\n" ;
+        }
+        //Visar Tabell
+        JOptionPane.showMessageDialog(null, tabell);
