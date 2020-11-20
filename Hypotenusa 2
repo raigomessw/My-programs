@@ -1,0 +1,16 @@
+package com.TestLivro;
+
+
+import javax.swing.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String s;
+        s = JOptionPane.showInputDialog("Första sidan");
+        double a =  Double.parseDouble(s);
+        s =JOptionPane.showInputDialog("Andra sida");
+        double b = Double.parseDouble(s);
+        double c = Math.sqrt(a*a) + (b*b);
+        JOptionPane.showMessageDialog(null, "Hypotenusa längd: " + c);
