@@ -1,0 +1,17 @@
+package com.Skola;
+
+
+import javax.swing.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int k = 0;
+        String s = "k:";
+        while (k < 6)   {
+            s = s + "  " + k;
+            k = k + 2;
+        }
+        JOptionPane.showMessageDialog(null, s);
+    }
+}
