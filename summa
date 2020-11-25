@@ -1,0 +1,21 @@
+package com.Skola;
+
+
+import javax.swing.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        String s = JOptionPane.showInputDialog("n?");
+        int n = Integer.parseInt(s);
+        int summa =0;
+        int k =1;
+        while (k <= n)  {
+            summa = summa + k;  //Öka summa med K
+            k = k + 1;          //Öka k med 1
+        }
+        JOptionPane.showMessageDialog(null, "Summar blir " + summa);
+
+
+    }
+}
