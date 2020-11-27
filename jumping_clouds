@@ -9,6 +9,9 @@ import java.util.regex.*;
 public class Solution {
 
     // Complete the jumpingOnClouds function below.
+    // tente resolver com esse array
+    // 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 1 0 0 0 0 1 0 0 1 0 0 1 0 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 0 0 0 1 0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 0 1 0 1 0 1 0 1 0 0 0 0 0 0 1 0 0 0
+    // resposta 53
     static int jumpingOnClouds(int[] c) {
         int jump = 0;
         int i = 0;
