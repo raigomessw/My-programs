@@ -1,0 +1,42 @@
+package com.Hacker;
+
+
+import javax.swing.*;
+
+public class Main<fortsätta> {
+    public static void main(String[] args) {
+        int A1 = 0; // A1 är antalet registrerade män
+        int A2 = 0; // A2 är antalet registrerade män kvinnor
+        int G1 = 0; // G1 är ansamlingen av alla män som är skrivna
+        int G2 = 0; //G2 är ansamlingen av alla kvinna som är skrivna
+        int M1 = 0; // M1 är medelåldern för Män
+        int M2 = 0; // M2 är medelåldern för kvinnor
+        int fortsätta = 0;
+
+        while (fortsätta == 0) {
+            int kategori = JOptionPane.showConfirmDialog(null, "Kategori 1", "Please select", JOptionPane.YES_NO_OPTION);
+            int år = Integer.parseInt(JOptionPane.showInputDialog("År"));
+            if (kategori == 0) {
+                A1++;
+                G1 = år + G1;
+                System.out.println("Män " + år + " År");
+            }
+            if (kategori == 1) {
+                A2++;
+                G2 = år + G2;
+                System.out.println("Kvinna " + år + " År");
+            }
+            fortsätta = JOptionPane.showConfirmDialog(null, "Vill du fortsätta?", "Please select", JOptionPane.YES_NO_OPTION);
+        }
+        if(A1 >= 1){
+            M1 = G1 / A1;
+        }
+        System.out.println(A1);
+        System.out.println(M1);
+        if(A2 >= 1){
+            M2 = G2 / A2;
+        }
+        System.out.println(A2);
+        System.out.println(M2);
+    }
+}
