@@ -1,0 +1,47 @@
+package com.Hacker;
+
+import javax.swing.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // 1. Leia na renda anual
+        // 2. Se o rendimento anual for inferior à dedução de base de 455.300 SEK.
+        // stalig tax = 0
+        // 3. Se a renda anual estiver entre SEK 455.300-662.300.
+        // imposto estável = (renda anual -13.400 - 455.300) * 0,2
+        // 4. Se a renda anual estiver acima do limite do estrato superior, SEK 638.500.
+        // imposto = (renda anual - 13.400-455.300) * 0,2 + (renda anual - 662.300) * 0,05
+        // 5. Resultados de impressão.
+        // 6. Perguntar se os usuários desejam fazer um novo cálculo? O programa será executado enquanto a resposta for SIM
+        // 7. À resposta, "NÃO" encerrará o programa.
+
+        double statligskatt;
+        int knappNr;
+
+        do {
+            String s = JOptionPane.showInputDialog("årsinkomst?");
+            int årsinkomst = Integer.parseInt(s);
+
+            if (årsinkomst<455300){  // den nedre skiktgränsen är 455300 kr
+                statligskatt=0;
+                JOptionPane.showMessageDialog(null, "Din statliga skatt är: " + statligskatt + "kr");
+            }
+            if(årsinkomst > 455300 && årsinkomst < 662300) {  // den övre skiktgränsen är 662300 kr
+                statligskatt = (årsinkomst - 13400 - 455300 * 0.2);
+                JOptionPane.showMessageDialog(null, "Din staliga skatt är: " + statligskatt + "kr");
+            }
+            if (årsinkomst > 638500) {
+                statligskatt = (årsinkomst - 13400 - 455300* 0.2 + (årsinkomst - 13400 - 662300)* 0.05);
+                JOptionPane.showMessageDialog(null, "Din statliga skatt är: " + statligskatt + "kr");
+            }
+            knappNr = JOptionPane.showConfirmDialog(null, "Vill du gora en ny berakning", "Fraga", JOptionPane.YES_NO_OPTION);
+
+        } while (knappNr == 0);
+
+        System.exit (0);
+
+        }
+
+    }
+
