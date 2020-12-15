@@ -1,0 +1,39 @@
+package com.Hacker;
+
+
+import javax.swing.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        String s = JOptionPane.showInputDialog("Pris Årskort?");
+        int prisår = Integer.parseInt(s);
+        String b = JOptionPane.showInputDialog("Pris Vid besök?");
+        int prisbesök = Integer.parseInt(b);
+        String c = JOptionPane.showInputDialog("hur många gånger vill du gå till gymmet?");
+        int besök = Integer.parseInt(c);
+        prisbesök =prisbesök*besök;
+
+        if(prisår > prisbesök){
+            JOptionPane.showMessageDialog(null, "Värt köpa vid besök");
+        }else;
+        if (prisår <prisbesök){
+            JOptionPane.showMessageDialog(null, "Värt köpa årskort");
+
+
+        }
+
+
+        }
+
+    }
+
+
+
+
+
+
+
