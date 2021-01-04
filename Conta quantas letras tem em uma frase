@@ -1,0 +1,34 @@
+package com.Hacker;
+
+import java.util.Scanner;
+
+ class Test {
+
+    public static void main(String args[]) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Skriv ett ord eller fler: ");
+        String ord = input.nextLine();
+
+        System.out.println("Skriv en bokstav: ");
+        char c = input.next().charAt(0);
+
+        countMethod(ord, c); //i methoden tar vi in det vi skrev ovan
+    }
+
+    static void countMethod(String str, char chars) {
+        int count = 0;
+        int index = 0;
+        while (true) { //loopar igenom när vi matat igenom ord och bokstav
+            index = str.indexOf(chars, index) + 1;
+            if (index == 0) {
+                break;
+            }
+            count++;
+        }
+        System.out.println("Totalt " + count + " (" + chars + ") i texten " + str);
+
+
+    }
+}
