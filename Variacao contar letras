@@ -1,0 +1,22 @@
+package com.Hacker;
+
+import java.util.Scanner;
+
+
+class CountChar {
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Skriv ett ord eller fler: ");
+        String myWords = input.nextLine();
+
+        System.out.println("Skriv en bokstav: ");
+        char myChar = input.next().charAt(0);
+
+        
+        long numCh = myWords.chars().filter(t -> t == myChar).count();
+        System.out.println("Totalt " + numCh + " (" + myChar + ") i texten " + myWords);
+
+        input.close();
+    }
+}
