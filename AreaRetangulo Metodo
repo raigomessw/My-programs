@@ -1,0 +1,23 @@
+package com.Hacker;
+
+
+import javax.swing.*;
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class Meuprojeto {
+
+    public static void main(String[] args) {
+        Scanner s= new Scanner(System.in);
+        JOptionPane.showMessageDialog(null, "Informe o valor da base?");
+        double base= s.nextDouble();
+
+        JOptionPane.showMessageDialog(null, "Informe o valor da altura?");
+        double altura = s.nextDouble();
+         double areaRetangulo = retangulo(base,altura);
+
+        System.out.println(areaRetangulo);
+    }
+    public static double retangulo(double base, double altura){
+        return base*altura;
+    }
