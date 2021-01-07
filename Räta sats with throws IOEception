@@ -1,0 +1,30 @@
+package com.Hacker;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader input= new BufferedReader( new InputStreamReader(System.in));
+        //Läs in data
+        System.out.println("Beloop? "); System.out.flush();
+        String s= input.readLine();
+        double b= Integer.parseInt(s);
+        System.out.println("Räntesats? "); System.out.flush();
+        s = input.readLine();
+        double r = Double.parseDouble(s);
+        System.out.println("Antal år "); System.out.flush();
+        s =input.readLine();
+        int år= Integer.parseInt(s);
+
+        //Bäräkna och skriv ut resultat
+        // Fixa class
+
+        double res =MinMath.räntaPåRänta(b, r, år);
+        System.out.println("Kapital: " + res);
+
+
+    }
+}
