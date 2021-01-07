@@ -1,0 +1,32 @@
+package com.Hacker;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader input =new BufferedReader(new InputStreamReader(System.in));
+
+        String kons ="abcdefghijlmnokABCDEFGHIJLMNOK";
+        while (true) {
+            String s1 = input.readLine(); //Läs nästa rad
+            if (s1 ==null)
+                break;       //End of file
+            String s2 = ""; //Rad som skall skrivas ut
+
+            //Löp igenom alla  tecken på den inlästa raden
+             for (int i=0; i< s1.length(); i++) {
+                 char c = s1.charAt(i);
+                 s2 =s2 + c;
+                  if (kons.indexOf(c)>=0)  //är c e konsonant?
+                      s2 =s2 + 'o' + c; //Ja
+             }
+            System.out.println(s2);
+
+        }
+
+
+    }
+}
