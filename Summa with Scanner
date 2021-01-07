@@ -1,0 +1,17 @@
+package com.Hacker;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        //Skapa en scanner som läser från filen
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Skriv ett antal heltal, Avsluta med Ctrl-Z");
+       int sum =0; //Summan av talen
+        while (sc.hasNextInt()) { //Finss det fler tal?
+            int n = sc.nextInt(); //Ja, läs nästa tal
+            sum +=n;
+        }
+        System.out.println("Summa: " + sum);
+    }
