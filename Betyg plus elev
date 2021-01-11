@@ -1,0 +1,36 @@
+package com.Hacker;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        //Skapa en ström från kommandoföstret .Crie um stream a partir da janela de comando
+        BufferedReader inpunt = new BufferedReader(new InputStreamReader(System.in));
+
+        //Läs filens namn från kommandoföstret .Leia o nome do arquivo no prompt de comando
+
+        System.out.println("Filens namn? "); System.out.flush();
+        String filnamn = inpunt.readLine();
+
+        //Skapa en ström från filen. Crie um fluxo do arquivo
+        BufferedReader inström= new BufferedReader(new FileReader(filnamn));
+
+        //Läs file och skriv ut de godkända eleverna
+
+        while (true) {
+            String rad1 = inström.readLine(); // Läs namnet
+            if (rad1 == null)      //Är filen slut?
+                break;         //Ja
+            String rad2 = inström.readLine(); //Läs Poängen
+            int poäng =Integer.parseInt(rad2);
+
+            if (poäng >= 50) //Godkänd
+                System.out.println(rad1 + " " + poäng);
+        }
+
+    }
+}
