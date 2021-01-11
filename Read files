@@ -1,0 +1,26 @@
+public class Kopiering {
+        public  void main (String [] arg ) throws IOException {
+
+            String filnamn1 = JOptionPane.showInputDialog("Vad heter filen som skall läsas ? ");
+            //Skapa en ström från infilen
+            BufferedReader inström = new BufferedReader(new FileReader(filnamn1));
+            //Skapa em ström till utfilen
+            String filnamn2 = JOptionPane.showInputDialog("Vad heter filen som skall skrivas? ");
+            PrintWriter utström = new PrintWriter(new BufferedWriter(new FileWriter(filnamn2)));
+
+            //Läs in filen och kopiera till utfilen
+
+            int radNr=0;
+            while (true) {
+                String rad = inström.readLine(); //Läs in filen
+                if (rad ==null)
+                    break;
+                radNr++;
+                utström.println(radNr + ": " + rad);  //Skriv ut filen
+            }
+            System.out.println(radNr + "rader kopierade från " +  filnamn1 + "till " + filnamn2);
+            utström.close();   //OBS! Viktigt
+        }
+
+    }
+}
