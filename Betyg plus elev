@@ -34,3 +34,28 @@ public class Main {
 
     }
 }
+// Vercao 2
+package com.Hacker;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Betyg2 {
+    public static void main(String[] args) throws IOException {
+        Scanner tangentbord = new Scanner(System.in);
+
+        System.out.println("Filens namn? "); System.out.flush();
+        String filnamn = tangentbord.next();
+
+        Scanner fil = new Scanner(new File(filnamn));
+
+        while (fil.hasNext()) {
+            String namn = fil.next();
+            while (!fil.hasNextInt())
+                namn += " " + fil.next();
+            int poämg = fil.nextInt();
+            if (poäng >=50 )
+                System.out.println(namn + " " + poäng);
+        }
+    }
+
