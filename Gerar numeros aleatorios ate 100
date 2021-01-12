@@ -1,0 +1,27 @@
+package com.Hacker;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Main calc = new Main();
+        int[] array = calc.dice();
+
+    }
+    public static int[] dice(){
+
+        int [] array= new int[100];
+
+
+        for  (int i =0; i<array.length; i++){
+            Random rand = new Random();
+
+            int radNr= rand.nextInt(6)+1;
+            array[i]=radNr;
+        }
+        for (int d : array)
+            System.out.println(d);
+        return array;
+
+
+    }
+}
