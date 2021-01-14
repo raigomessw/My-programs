@@ -1,9 +1,9 @@
-package com.Hacker;
+ppackage com.Hacker;
 import java.util.Random;
 
-public class Main {
+public class Programmering3AB {
     public static void main(String[] args) {
-        Main calc = new Main();
+        Programmering3AB calc = new Programmering3AB();
         int[] array = calc.dice();
 
     }
