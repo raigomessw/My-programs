@@ -1,0 +1,65 @@
+package com.Hacker;
+
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class JfrAbonnemang {
+
+    public static void main(String[] args) throws IOException {
+	//Skapa fälten
+        String[] namn = new String[100];
+
+        double[] perMån = new double[100];
+        double[] perMinDag = new double[100];
+        double[] perMinÖvr = new double[100];
+        double[] friaDag = new double[100];
+        double[] friaÖvr = new double[100];
+
+        //Koppla en scanner till filen och läs filen
+
+        Scanner fil = new Scanner(new File("mobildata.txt"));
+
+        int n = 0; //Antal olika abonnemang
+
+        while (fil.hasNext()) {
+            // Läs en rad i filen
+            namn [n] = fil.next();
+            perMån [n] = fil.nextDouble();
+            perMinDag [n] = fil.nextDouble();
+            perMinÖvr [n] = fil.nextDouble();
+            friaDag [n] = fil.nextDouble();
+            friaÖvr [n] = fil.nextDouble();
+            n++;
+        }
+        //Gör beräkningar for olika indata
+        while (true) {
+            String s = JOptionPane.showInputDialog("Hur många minuter ringer du per månad´\n" + "under dagtid respektive övrig tid?");
+            if (s ==null)
+                break;
+            Scanner input =new Scanner(s);
+            double minDag = input.nextDouble();
+            double minÖvr = input.nextDouble();
+            double billigast = Double.MAX_VALUE;    //Hittills
+            int index = 0; //For det billigaste alternativet
+            for (int i =0; i<n; i++)    {
+                double antalDag = Math.max(minDag-friaDag[i],0);
+                double antalÖvr =Math.max(minÖvr-friaÖvr[i],0);
+                //Beräkna total kostnad per månad
+                double kostnad = perMån[i] + antalDag * perMinDag[i] + antalÖvr * perMinÖvr[i];
+
+                if (kostnad<billigast)  {
+                    billigast =kostnad;
+                    index =i;
+                }
+            }
+            //Redigera och vis den lägsta kostnaden
+            String resultat =String.format ("%.2f", billigast);
+            JOptionPane.showMessageDialog(null, namn[index] + "är billigast.\n" + "kostnad: " +
+                    "Kostnad: " + resultat + "kr / månad");
+        }
+
+
+    }
+}
