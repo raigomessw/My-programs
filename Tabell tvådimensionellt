@@ -1,0 +1,23 @@
+package com.Hacker;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[][] av = {{   0},
+                { 64,      0},
+                {1228, 1249,     0},
+                {284,  273,   1463,   0},
+                {253,  317,   1022,   458,    0},
+                {411,  475,    906,   615,    161,    0},
+                {962,  983,    266,   1210,   756,    640,     0}};
+        for (int i=0; i<av.length; i++) {
+            System.out.println("Tabell" + i + " :");
+            for (int j=0; j<av [i].length; j++)
+                System.out.println(" " + av [i] [j]);
+            System.out.println();
+
+        }
+
+    }
+}
+
