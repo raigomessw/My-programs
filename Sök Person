@@ -1,0 +1,38 @@
+package com.Hacker;
+
+import javax.swing.*;
+import java.io.*;
+
+public class SokPersoner {
+
+    public static void main(String[] args) throws IOException {
+        ObjectInputStream inström = new ObjectInputStream(new FileInputStream("Personfil.data"));
+
+        String sökt = JOptionPane.showInputDialog("Den sökta personer efeternamn");
+        Person p = new Person();
+        while (true) {
+            try {
+                p = (Person) inström.readObject();
+            }
+            catch  (EOFException e) {
+                break;  //Filen är slut
+            }
+            if (p.efternamn.equals (sökt)) {
+                String s = p.förnamn + " " + p.efternamn + ", född år "+ p.föddÅr + ", är ";
+                if(!p.singel)
+                    s = s+ "inte ";
+                 s = s + " singel ";
+                 JOptionPane.showMessageDialog(null, s);
+
+            }
+        }
+        inström.close();
+
+    }
+    public static  class Person implements Serializable {
+        String förnamn;
+        String efternamn;
+        int föddÅr;
+        boolean singel =true;
+    }
+}
