@@ -1,0 +1,42 @@
+package com.Hacker;
+
+import javax.swing.*;
+import java.util.Scanner;
+
+public class CirkelProg2 {
+
+    public static void main(String[] args) {
+        Cirkel c1 = new Cirkel(),
+                c2 = new Cirkel();
+        String s = JOptionPane.showInputDialog("Den fösta cirkelns radie? ");
+        Scanner sc = new Scanner(s);
+        c1.sättRadie(sc.nextDouble());
+        s = JOptionPane.showInputDialog("Den andra cirkellns radie? ");
+        sc=new Scanner(s);
+        c2.sättRadie(sc.nextDouble());
+        JOptionPane.showMessageDialog(null, String.format("Den fösta cirkeln har arean %.3f " +
+                "och omkretsen %.3f\n" + "Den andra cirkeln har arean %.3f " +
+                "och omkretsen %.3f", c1.area(), c1.omkr(), c2.area(), c2.omkr()));
+
+    }
+    public  class Cirkel {
+        //InstansVariabler
+        double x, y;  //Mittpunktens koordinater
+        double radie;
+
+        //InstansMetoder
+        public void sättRadie(double r) {
+            if (r >=0 )
+                radie = r;
+            else
+                throw new IllegalArgumentException("Negativ radie");
+        }
+        public double area() {
+
+        return Math.PI *radie *radie;
+        }
+        public double omkr () {    //Beräknar omkretsen
+            return 2 * Math.PI * radie;
+        }
+    }
+}
