@@ -1,0 +1,95 @@
+package com.Hacker;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Spel21 {
+
+    public static void main(String[] args) {
+
+        sorteioj21 j21 = new sorteioj21();
+        j21.blandarpc();
+        j21.blandarply();
+        j21.player = "Rai";
+        j21.sexo = "Man"; //Kön
+        j21.spel = "Satte igång";
+
+        BufferedReader inmatning;
+        inmatning = new BufferedReader(new InputStreamReader(System.in));
+
+        do {
+            j21.blandarpc();
+            j21.blandarply();
+            System.out.println("    ");
+            System.out.println("Dina poäng är in: " + j21.jpoäeng + " Dator poäng är in: " + j21.ppoäeng);
+            System.out.println("Vill du plocka upp fler kort ?(Skriv j för Ja eller vilken tangent som helst för att avsluta)");
+            try {
+                j21.ta = (inmatning.readLine()); //Ja nyckelfunktion
+            } catch (Exception e) {
+                System.out.println("Misstag");
+            }
+
+        } while ((j21.ta.equals("j"))&&(j21.jpoäeng<21)&&(j21.ppoäeng<21));
+        j21.spelardata();
+
+        System.out.println("Slutet");
+    }
+
+    static class sorteioj21 {
+        private String player;
+        private String sexo;
+        private String spel;
+        private String ta;
+        private int ppoäeng; //Dator poäeng
+        private int jpoäeng; //Player poäeng
+
+
+        void blandarpc() {    //Blandar dator kort
+            ArrayList<Integer> kortspc = new ArrayList<Integer>();
+            for (int i = 1; i <= 11; i++) kortspc.add(i);
+            Collections.shuffle(kortspc);
+            ppoäeng = ppoäeng+ kortspc.get(0);
+        }
+
+        void blandarply() {    //Blandar Kort player
+            ArrayList<Integer> kortsply = new ArrayList<Integer>();
+            for (int i = 1; i <= 11; i++) kortsply.add(i);
+            Collections.shuffle(kortsply);
+            System.out.println("Kortuttag: " + kortsply.get(0));
+
+            jpoäeng = jpoäeng + kortsply.get(0);
+        }
+
+
+        void spelardata() {    // Spel data info
+            if (spel.equals("satte igång")) {
+                System.out.println("    ");
+                System.out.println(player + " du " + spel + " spelet med " + jpoäeng + " poäng");
+                System.out.println("    ");
+            } else {
+                System.out.println("    ");
+                System.out.println(player + " du " + spel + " spelet med " + jpoäeng + " poäng, och dator med: " + ppoäeng);
+                if (ppoäeng == 21 && jpoäeng == 21)
+                    System.out.println("Dator vann");
+
+                if (ppoäeng < 22 && jpoäeng < ppoäeng)
+                    System.out.println("Dator vann");
+                if (ppoäeng > 21 && jpoäeng > ppoäeng)
+                    System.out.println("Dator vann");
+                if (jpoäeng > 21 && ppoäeng <= 21)
+                    System.out.println("Dator vann");
+                if (jpoäeng < 22 && ppoäeng < jpoäeng)
+                    System.out.println("Du vann");
+                if (ppoäeng > 21 && jpoäeng <= 21)
+                    System.out.println("Du vann");
+                if (jpoäeng > 21 && ppoäeng > jpoäeng)
+                    System.out.println("Du vann");
+
+            }
+        }
+
+
+    }
+}
